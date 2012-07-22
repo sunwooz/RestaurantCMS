@@ -1,0 +1,21 @@
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+	  <th>Price</th>
+    </tr>
+  </thead>
+  <tbody>
+	<% @menuitems.each do |f| %>
+    <tr>
+      <td><%= f.name %></td>
+      <td><%= f.description %></td>
+	  <td>$<%= f.price %></td>
+	  <td><%= link_to 'Destroy', menuitem_path(f), :method => :delete %>
+		  <%= link_to 'Edit', edit_menuitem_path(f) %></td>
+    </tr>
+	<% end %>
+  </tbody>
+</table>

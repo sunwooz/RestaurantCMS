@@ -1,4 +1,6 @@
 Restauranttest::Application.routes.draw do
+  resources :menuitems
+
   root :to => 'users#new'
   
   match 'user/edit' => 'users#edit', :as => :edit_current_user
