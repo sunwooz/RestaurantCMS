@@ -4,22 +4,22 @@
     <tr>
       <th>Name</th>
       <th>Description</th>
-	  <th>Price</th>
-	  <th>Image</th>
+    <th>Price</th>
+    <th>Image</th>
     </tr>
   </thead>
   <tbody>
-	<% @menuitems.each do |f| %>
+  <% @menuitems.each do |f| %>
     <tr>
       <td><%= f.name %></td>
       <td><%= f.description %></td>
-	  <td>$<%= f.price %></td>
-	<% if f.image? %>
-	  <td><%= image_tag f.image.url(:small) %></td>
-	<% end %>
-	  <td><%= link_to 'Destroy', menuitem_path(f), :method => :delete, :class => 'btn btn-danger' %>
-		  <%= link_to 'Edit', edit_menuitem_path(f), :class => 'btn btn-success'%></td>
+    <td>$<%= f.price %></td>
+  <% if f.image_file_name? %>
+    <td><%= image_tag f.image.url(:small) %></td>
+  <% end %>
+    <td><%= link_to 'Destroy', menuitem_path(f), :method => :delete, :class => 'btn btn-danger' %>
+      <%= link_to 'Edit', edit_menuitem_path(f), :class => 'btn btn-success'%></td>
     </tr>
-	<% end %>
+  <% end %>
   </tbody>
 </table>

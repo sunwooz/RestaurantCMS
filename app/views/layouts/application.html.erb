@@ -13,7 +13,7 @@
     <![endif]-->
 
     <%= stylesheet_link_tag "application", :media => "all" %>
-	<%= stylesheet_link_tag "custom"     , :media => "all" %>
+  <%= stylesheet_link_tag "custom"     , :media => "all" %>
     <!-- For third-generation iPad with high-resolution Retina display: -->
     <!-- Size should be 144 x 144 pixels -->
   </head>
@@ -30,13 +30,13 @@
           <a class="brand" href="/">Menutastic</a>
           <div class="container nav-collapse">
             <ul class="nav">
-				<% if current_user %>
-					<li><%= link_to current_user.email, user_path(current_user) %>
-					<li><%= link_to 'Logout', logout_path %></li>
-				<% else %>
-					<li><%= link_to 'Signup', signup_path %></li>
-					<li><%= link_to 'Login', login_path %></li>
-				<% end %>
+        <% if current_user %>
+          <li><%= link_to current_user.email, user_path(current_user) %></li>
+          <li><%= link_to 'Logout', logout_path %></li>
+        <% else %>
+          <li><%= link_to 'Signup', signup_path %></li>
+          <li><%= link_to 'Login', login_path %></li>
+        <% end %>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
