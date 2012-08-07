@@ -1,21 +1,28 @@
 class MenuitemsController < ApplicationController
+
   def new
-    @menuitem = Menuitem.new
+    @restaurant = Restaurant.find(params[:restaurant_id])
+    @menuitem = @restaurant.menuitems.build
   end
-  
+
   def create
-    @menuitem = Menuitem.new(params[:menuitem])
+    @restaurant = Restaurant.find(params[:restaurant_id])
+    @menuitem = @restaurant.menuitems.build(params[:menuitem])
     respond_to do |format|
       if @menuitem.save
-        format.html { redirect_to menuitems_path }
+        format.html { redirect_to restaurant_path(@restaurant) }
       end
     end
   end
-  
+
+  def show
+    @restaurant = Restaurant.find(params[:restaurant_id])
+  end
+
   def edit
     @menuitem = Menuitem.find(params[:id])
   end
-  
+
   def update
     @menuitem = Menuitem.find(params[:id])
     respond_to do |format|
@@ -25,13 +32,11 @@ class MenuitemsController < ApplicationController
     end
   end
 
-  def show
+  def index
+    @restaurant = Restaurant.find(params[:restaurant_id])
+    @menuitems = @restaurant.menuitems.build
   end
 
-  def index
-    @menuitems = Menuitem.all
-  end
-  
   def destroy
     @menuitem = Menuitem.find(params[:id])
     respond_to do |format|

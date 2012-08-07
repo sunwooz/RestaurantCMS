@@ -1,0 +1,57 @@
+<%= form_for([@restaurant, @restaurant.build_hour]) do |f| %>
+  <div class="row-fluid">
+    <h1>Store Hours</h1>
+    <div class="span1 hours_input">
+      <h3>Monday</h1>
+      From
+      <%= f.text_field :from_monday, :class => 'span20'  %>
+      To
+      <%= f.text_field :to_monday, :class => 'span20'  %>
+    </div>
+    <div class="span1 hours_input">
+      <h3>Tuesday</h3>
+      From
+      <%= f.text_field :from_tuesday, :class => 'span20' %>
+      Tuesday
+      <%= f.text_field :to_tuesday, :class => 'span20'  %>
+    </div>
+    <div class="span1 hours_input">
+      <h3>Wednesday</h3>
+      From
+      <%= f.text_field :from_wednesday, :class => 'span20'  %>
+      To
+      <%= f.text_field :to_wednesday, :class => 'span20'  %>
+    </div>
+    <div class="span1 hours_input">
+      <h3>Thursday</h3>
+      From
+      <%= f.text_field :from_thursday, :class => 'span20'  %>
+      To
+      <%= f.text_field :to_thursday, :class => 'span20'  %>
+    </div>
+    <div class="span1 hours_input">
+      <h3>Friday</h3>
+      From
+      <%= f.text_field :from_friday, :class => 'span20'  %>
+      To
+      <%= f.text_field :to_friday, :class => 'span20'  %>
+    </div>
+    <div class="span1 hours_input">
+      <h3>Saturday</h3>
+      From
+      <%= f.text_field :from_saturday, :class => 'span20'  %>
+      To
+      <%= f.text_field :to_saturday, :class => 'span20'  %>
+    </div>
+    <div class="span1 hours_input">
+      <h3>Sunday</h3>
+      From
+      <%= f.text_field :from_sunday, :class => 'span20'  %>
+      To
+      <%= f.text_field :to_sunday, :class => 'span20'  %>
+    </div>
+    <div class="span1">
+      <%= f.submit 'Set Hours', :id => 'submit_hours' %>
+    </div>
+  </div>
+<% end %>

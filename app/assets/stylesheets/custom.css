@@ -1,5 +1,9 @@
 .container {
-	width:1024px;
-	margin: 0 auto;
-	margin-left:20px;
+  width:1024px;
+  margin: 0 auto;
+  margin-left:20px;
+}
+.container-fluid {
+  width: 60%;
+  margin: 0 auto;
 }

@@ -11,7 +11,27 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120725234821) do
+ActiveRecord::Schema.define(:version => 20120806004622) do
+
+  create_table "hours", :force => true do |t|
+    t.datetime "from_monday"
+    t.datetime "to_monday"
+    t.datetime "from_tuesday"
+    t.datetime "to_tuesday"
+    t.datetime "from_wednesday"
+    t.datetime "to_wednesday"
+    t.datetime "from_thursday"
+    t.datetime "to_thursday"
+    t.datetime "from_friday"
+    t.datetime "to_friday"
+    t.datetime "from_saturday"
+    t.datetime "to_saturday"
+    t.datetime "from_sunday"
+    t.datetime "to_sunday"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.integer  "restaurant_id"
+  end
 
   create_table "menuitems", :force => true do |t|
     t.string   "name"
@@ -23,6 +43,14 @@ ActiveRecord::Schema.define(:version => 20120725234821) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_upadated_at"
+    t.integer  "restaurant_id"
+  end
+
+  create_table "restaurants", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "users", :force => true do |t|

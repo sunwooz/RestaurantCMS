@@ -1,12 +1,9 @@
-<h1>New Menu</h1>
-<%= form_for(@menuitem, :html => { :multipart => true }) do |f| %>
-	<%= f.label :name %>
-	<%= f.text_field :name %>
-	<%= f.label :image %>
-	<%= f.file_field :image %>
-	<%= f.label :description %>
-	<%= f.text_field :description %>
-	<%= f.label :price %>
-	<%= f.text_field :price %><br/>
-	<%= f.submit %>
+<%= form_for [@restaurant, @restaurant.menuitems.new] do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+  <%= f.label :price %>
+  <%= f.text_field :price %>
+  <%= f.submit %>
 <% end %>

@@ -1,0 +1,40 @@
+<h1><%= @restaurant.name %></h1>
+<p><%= @restaurant.description %></p>
+
+
+<% if @restaurant.menuitems == [] %>
+  <p>Add your first: <%= link_to 'Dish', new_restaurant_menuitem_path(@restaurant) %> |</p>
+<% else %>
+  <p>
+    <%= link_to 'Add Dish', new_restaurant_menuitem_path(@restaurant) %> |
+  </p>
+<% end %>
+
+<%= link_to 'Set Hour', edit_restaurant_hour_path([@restaurant, @hour]) %>
+
+<% if @restaurant.hour %>
+  <%= @restaurant.hour.from_friday %>
+<% end %>
+
+
+
+<% if @restaurant.menuitems.any? %>
+  <div class="row-fluid">
+    <div class="span12">
+      <h1>Menu</h1>
+      <% @restaurant.menuitems.each do |menuitem|%>
+      <div class="row-fluid">
+          <div class="span4"><b><%= menuitem.name %></b></div>
+          <div class="span5"><%= menuitem.description %></div>
+          <div class="span3"><%= menuitem.price %></div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+
+<br/>
+<footer>
+  <p>&copy; <%= @restaurant.name %> 2012</p>
+</footer>
+
