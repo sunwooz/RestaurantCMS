@@ -12,27 +12,31 @@
 <% end %>
 <div class="row-fluid">
   <div class="span5">
-    Monday:
-      <%= @restaurant.hour.from_monday %> -
-      <%= @restaurant.hour.to_monday %><br/>
-    Tuesday:
-      <%= @restaurant.hour.from_tuesday %> -
-      <%= @restaurant.hour.to_tuesday %><br/>
-    Wednesday:
-      <%= @restaurant.hour.from_wednesday %> -
-      <%= @restaurant.hour.to_wednesday %><br/>
-    Thursday:
-      <%= @restaurant.hour.from_thursday %> -
-      <%= @restaurant.hour.to_thursday %><br/>
-    Friday:
-      <%= @restaurant.hour.from_friday %> -
-      <%= @restaurant.hour.to_friday %><br/>
-    Saturday:
-      <%= @restaurant.hour.from_saturday %> -
-      <%= @restaurant.hour.to_saturday %><br/>
-    Sunday:
-      <%= @restaurant.hour.from_sunday %> -
-      <%= @restaurant.hour.to_sunday %><br/>
+    <% if @restaurant.hour.from_monday %>
+      Monday:
+        <%= @restaurant.hour.from_monday %> -
+        <%= @restaurant.hour.to_monday %><br/>
+      Tuesday:
+        <%= @restaurant.hour.from_tuesday %> -
+        <%= @restaurant.hour.to_tuesday %><br/>
+      Wednesday:
+        <%= @restaurant.hour.from_wednesday %> -
+        <%= @restaurant.hour.to_wednesday %><br/>
+      Thursday:
+        <%= @restaurant.hour.from_thursday %> -
+        <%= @restaurant.hour.to_thursday %><br/>
+      Friday:
+        <%= @restaurant.hour.from_friday %> -
+        <%= @restaurant.hour.to_friday %><br/>
+      Saturday:
+        <%= @restaurant.hour.from_saturday %> -
+        <%= @restaurant.hour.to_saturday %><br/>
+      Sunday:
+        <%= @restaurant.hour.from_sunday %> -
+        <%= @restaurant.hour.to_sunday %><br/>
+    <% else %>
+      <!-- empty -->
+    <% end %>
   </div>
   <div class="span6">
     <h1>Map goes here</h1>
