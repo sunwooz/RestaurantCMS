@@ -15,7 +15,6 @@ class RestaurantsController < ApplicationController
 
   def show
     @restaurant = Restaurant.find(params[:id])
-    @hour = @restaurant.hour
     @menuitem = @restaurant.menuitems.build
   end
 

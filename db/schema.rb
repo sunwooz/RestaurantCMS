@@ -11,23 +11,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120806004622) do
+ActiveRecord::Schema.define(:version => 20120813001416) do
 
   create_table "hours", :force => true do |t|
-    t.datetime "from_monday"
-    t.datetime "to_monday"
-    t.datetime "from_tuesday"
-    t.datetime "to_tuesday"
-    t.datetime "from_wednesday"
-    t.datetime "to_wednesday"
-    t.datetime "from_thursday"
-    t.datetime "to_thursday"
-    t.datetime "from_friday"
-    t.datetime "to_friday"
-    t.datetime "from_saturday"
-    t.datetime "to_saturday"
-    t.datetime "from_sunday"
-    t.datetime "to_sunday"
+    t.string   "from_monday"
+    t.string   "to_monday"
+    t.string   "from_tuesday"
+    t.string   "to_tuesday"
+    t.string   "from_wednesday"
+    t.string   "to_wednesday"
+    t.string   "from_thursday"
+    t.string   "to_thursday"
+    t.string   "from_friday"
+    t.string   "to_friday"
+    t.string   "from_saturday"
+    t.string   "to_saturday"
+    t.string   "from_sunday"
+    t.string   "to_sunday"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
     t.integer  "restaurant_id"

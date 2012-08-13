@@ -7,15 +7,39 @@
 <% else %>
   <p>
     <%= link_to 'Add Dish', new_restaurant_menuitem_path(@restaurant) %> |
+    <%= link_to 'Set Hours', edit_restaurant_hour_path(@restaurant)%>
   </p>
 <% end %>
-
-<%= link_to 'Set Hour', edit_restaurant_hour_path([@restaurant, @hour]) %>
-
-<% if @restaurant.hour %>
-  <%= @restaurant.hour.from_friday %>
-<% end %>
-
+<div class="row-fluid">
+  <div class="span5">
+  <% if @restaurant.hour %>
+      Monday:
+        <%= @restaurant.hour.from_monday %> -
+        <%= @restaurant.hour.to_monday %><br/>
+      Tuesday:
+        <%= @restaurant.hour.from_tuesday %> -
+        <%= @restaurant.hour.to_tuesday %><br/>
+      Wednesday:
+        <%= @restaurant.hour.from_wednesday %> -
+        <%= @restaurant.hour.to_wednesday %><br/>
+      Thursday:
+        <%= @restaurant.hour.from_thursday %> -
+        <%= @restaurant.hour.to_thursday %><br/>
+      Friday:
+        <%= @restaurant.hour.from_friday %> -
+        <%= @restaurant.hour.to_friday %><br/>
+      Saturday:
+        <%= @restaurant.hour.from_saturday %> -
+        <%= @restaurant.hour.to_saturday %><br/>
+      Sunday:
+        <%= @restaurant.hour.from_sunday %> -
+        <%= @restaurant.hour.to_sunday %><br/>
+    <% end %>
+  </div>
+  <div class="span6">
+    <h1>Map goes here</h1>
+  </div>
+</div>
 
 
 <% if @restaurant.menuitems.any? %>

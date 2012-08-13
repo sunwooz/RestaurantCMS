@@ -12,7 +12,7 @@ class HoursController < ApplicationController
 
   def update
     @restaurant = Restaurant.find(params[:restaurant_id])
-    @hour = @restaurant.hour
+    @hour = @restaurant.build_hour
     respond_to do |format|
       if @hour.update_attributes(params[:hour])
         format.html { redirect_to restaurant_path(@restaurant) }

@@ -1,8 +1,9 @@
 Restauranttest::Application.routes.draw do
-  resources :restaurants do |restaurant|
+  resources :restaurants do
     resources :menuitems
     resource :hour
   end
+
   root :to => 'restaurants#index'
 
   match 'user/edit' => 'users#edit', :as => :edit_current_user

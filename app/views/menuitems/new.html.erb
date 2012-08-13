@@ -1,9 +1,14 @@
+<% if @restaurant.menuitems %>
+  <h1>Add a new dish</h1>
+<% else %>
+  <h1>Add your first Dish</h1>
+<% end %>
 <%= form_for [@restaurant, @restaurant.menuitems.new] do |f| %>
-  <%= f.label :name %>
+  <%= f.label :name %>~
   <%= f.text_field :name %>
-  <%= f.label :description %>
+  <%= f.label :description %>~
   <%= f.text_field :description %>
-  <%= f.label :price %>
-  <%= f.text_field :price %>
-  <%= f.submit %>
+  <%= f.label :price %>$
+  <%= f.text_field :price %><br/>
+  <%= f.submit 'Add Item', :class => 'btn btn-large btn-success' %>
 <% end %>
