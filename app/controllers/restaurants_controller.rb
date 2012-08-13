@@ -16,6 +16,11 @@ class RestaurantsController < ApplicationController
   def show
     @restaurant = Restaurant.find(params[:id])
     @menuitem = @restaurant.menuitems.build
+    if @restaurant.hour
+      return false
+    else
+      @restaurant.build_hour
+    end
   end
 
   def index
