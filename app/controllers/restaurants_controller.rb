@@ -8,7 +8,7 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.new(params[:restaurant])
     @hour = @restaurant.build_hour
     respond_to do |format|
-      if @restaurant.save && @hour.save
+      if @restaurant.save
         format.html { redirect_to restaurants_path }
       end
     end
