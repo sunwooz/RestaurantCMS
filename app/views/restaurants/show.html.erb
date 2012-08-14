@@ -1,17 +1,7 @@
-<h1><%= @restaurant.name %></h1>
-<p><%= @restaurant.description %></p>
-
-
-<% if @restaurant.menuitems == [] %>
-  <p>Add your first: <%= link_to 'Dish', new_restaurant_menuitem_path(@restaurant) %> |</p>
-<% else %>
-  <p>
-    <%= link_to 'Add Dish', new_restaurant_menuitem_path(@restaurant) %> |
-    <%= link_to 'Set Hours', edit_restaurant_hour_path(@restaurant)%>
-  </p>
-<% end %>
 <div class="row-fluid">
-  <div class="span5">
+  <div class="span6">
+    <h1><%= @restaurant.name %></h1>
+    <p><%= @restaurant.description %></p>
     <% if @restaurant.hour.from_monday %>
       Monday:
         <%= @restaurant.hour.from_monday %> -
@@ -33,34 +23,70 @@
         <%= @restaurant.hour.to_saturday %><br/>
       Sunday:
         <%= @restaurant.hour.from_sunday %> -
-        <%= @restaurant.hour.to_sunday %><br/>
+        <%= @restaurant.hour.to_sunday %><br/><br/><br/>
     <% else %>
       <!-- empty -->
     <% end %>
-  </div>
-  <div class="span6">
-    <h1>Map goes here</h1>
+    <% if @restaurant.menuitems == [] %>
+      <p>Add your first: <%= link_to 'Dish', new_restaurant_menuitem_path(@restaurant) %> |</p>
+    <% else %>
+      <p>
+        <%= link_to 'Add Dish', new_restaurant_menuitem_path(@restaurant) %> |
+        <%= link_to 'Set Hours', edit_restaurant_hour_path(@restaurant)%>
+      </p>
+    <% end %>
+    </div>
+
+    <div class="span6">
+      <script type="text/javascript">
+        function initialize() {
+          var mapOptions = {
+            center: new google.maps.LatLng(-34.397, 150.644),
+            zoom: 8,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+          var map = new google.maps.Map(document.getElementById("map_canvas"),
+            mapOptions);
+            }
+            $(document).ready(function() {
+              initialize();
+            });
+      </script>
+        <div id="map_canvas" style="width:300px; height:250px"></div>
+      </div>
   </div>
 </div>
 
-
-<% if @restaurant.menuitems.any? %>
-  <div class="row-fluid">
-    <div class="span12">
-      <h1>Menu</h1>
-      <% @restaurant.menuitems.each do |menuitem|%>
-      <div class="row-fluid">
-          <div class="span4"><b><%= menuitem.name %></b></div>
-          <div class="span5"><%= menuitem.description %></div>
-          <div class="span3"><%= menuitem.price %></div>
-      </div>
-      <% end %>
-    </div>
-  </div>
-<% end %>
-
+<div class="row-fluid">
+  <div class="span12 menu">
+    <h1>Menu</h1>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Image</th>
+          <th>Dish</th>
+          <th>Description</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @restaurant.menuitems.each do |menuitem| %>
+        <tr>
+          <td><%= image_tag menuitem.image.url(:small) %></td>
+          <td><%= menuitem.name %></td>
+          <td><%= menuitem.description %></td>
+          <td><%= menuitem.price %></td>
+          <td><%= link_to 'Edit',   edit_restaurant_menuitem_path(:restaurant_id => menuitem.restaurant_id,
+                                                            :id => menuitem.id)%>
+              <%= link_to 'Delete', restaurant_menuitem_path(:restaurant_id => menuitem.restaurant_id,
+                                                            :id => menuitem.id), :method => :delete, :confirm => 'Are you sure?' %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
 <br/>
 <footer>
-  <p>&copy; <%= @restaurant.name %> 2012</p>
+  <p style="position:relative; margin-left:30px;">&copy; <%= @restaurant.name %> 2012</p>
 </footer>
+      <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBdZ8-7GHY97vFoMAUB6bTRr7IfPS3_9Cs&sensor=true"></script>
 

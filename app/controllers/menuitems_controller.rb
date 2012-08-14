@@ -17,18 +17,20 @@ class MenuitemsController < ApplicationController
 
   def show
     @restaurant = Restaurant.find(params[:restaurant_id])
+    @menuitem = Menuitem.find(params[:id])
   end
 
   def edit
+    @restaurant = Restaurant.find(params[:restaurant_id])
     @menuitem = Menuitem.find(params[:id])
   end
 
   def update
+    @restaurant = Restaurant.find(params[:restaurant_id])
     @menuitem = Menuitem.find(params[:id])
+    @menuitem.update_attributes(params[:menuitem])
     respond_to do |format|
-      if @menuitem.update_attributes(params[:menuitem])
-        format.html { redirect_to menuitems_path }
-      end
+      format.html { redirect_to @restaurant }
     end
   end
 
@@ -38,6 +40,7 @@ class MenuitemsController < ApplicationController
   end
 
   def destroy
+    @restaurant = Restaurant.find(params[:restaurant_id])
     @menuitem = Menuitem.find(params[:id])
     respond_to do |format|
       if @menuitem.destroy
