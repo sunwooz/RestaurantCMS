@@ -1,0 +1,14 @@
+<p>
+  <h1><%= @user.username.capitalize %>'s Restaurants</h1>
+</p>
+<p>
+  <i><%= @user.email %></i>
+</p>
+<p>
+  <% @user.restaurants.each do |f| %>
+    <p>
+      <%= link_to f.name, user_restaurants_path(@user, @user.restaurants) %><br/>
+      <%= f.description %>
+    </p>
+  <% end %>
+</p>

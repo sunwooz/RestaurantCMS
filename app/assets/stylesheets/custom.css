@@ -1,9 +1,35 @@
-.container {
-  width:1024px;
-  margin: 0 auto;
-  margin-left:20px;
+.error {
+  color: red;
 }
-.container-fluid {
-  width: 60%;
+.notice {
+  color: green;
+}
+body {
+  margin:0px auto;
+  padding:0px;
+  font-family: 'Abril Fatface';
+}
+.container {
   margin: 0 auto;
+  width:800px;
+}
+.content {
+  clear:both;
+}
+.navbar {
+  list-style-type:none;
+  text-align:right;
+  display:inline;
+  margin-bottom:50px;
+}
+.navbar li {
+  float:right;
+  padding:20px;
+}
+.navbar li a {
+  color:#242E3D;
+  text-decoration:none;
+}
+.navbar li a:hover {
+  text-decoration:underline;
 }

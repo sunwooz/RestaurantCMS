@@ -1,92 +1,130 @@
-<div class="row-fluid">
-  <div class="span6">
-    <h1><%= @restaurant.name %></h1>
-    <p><%= @restaurant.description %></p>
-    <% if @restaurant.hour.from_monday %>
-      Monday:
-        <%= @restaurant.hour.from_monday %> -
-        <%= @restaurant.hour.to_monday %><br/>
-      Tuesday:
-        <%= @restaurant.hour.from_tuesday %> -
-        <%= @restaurant.hour.to_tuesday %><br/>
-      Wednesday:
-        <%= @restaurant.hour.from_wednesday %> -
-        <%= @restaurant.hour.to_wednesday %><br/>
-      Thursday:
-        <%= @restaurant.hour.from_thursday %> -
-        <%= @restaurant.hour.to_thursday %><br/>
-      Friday:
-        <%= @restaurant.hour.from_friday %> -
-        <%= @restaurant.hour.to_friday %><br/>
-      Saturday:
-        <%= @restaurant.hour.from_saturday %> -
-        <%= @restaurant.hour.to_saturday %><br/>
-      Sunday:
-        <%= @restaurant.hour.from_sunday %> -
-        <%= @restaurant.hour.to_sunday %><br/><br/><br/>
-    <% else %>
-      <!-- empty -->
-    <% end %>
-    <% if @restaurant.menuitems == [] %>
-      <p>Add your first: <%= link_to 'Dish', new_restaurant_menuitem_path(@restaurant) %> |</p>
-    <% else %>
-      <p>
-        <%= link_to 'Add Dish', new_restaurant_menuitem_path(@restaurant) %> |
-        <%= link_to 'Set Hours', edit_restaurant_hour_path(@restaurant)%>
-      </p>
-    <% end %>
+<div class="span12">
+  <div id="show_restaurant">
+    <div class="row-fluid">
+      <div class="span5">
+        <h1 id="r_name"><%= @restaurant.name %></h1>
+        <p><%= @restaurant.description %></p>
+        <% if @restaurant.hour.from_monday %>
+          Monday:
+            <%= @restaurant.hour.from_monday %> -
+            <%= @restaurant.hour.to_monday %><br/>
+          Tuesday:
+            <%= @restaurant.hour.from_tuesday %> -
+            <%= @restaurant.hour.to_tuesday %><br/>
+          Wednesday:
+            <%= @restaurant.hour.from_wednesday %> -
+            <%= @restaurant.hour.to_wednesday %><br/>
+          Thursday:
+            <%= @restaurant.hour.from_thursday %> -
+            <%= @restaurant.hour.to_thursday %><br/>
+          Friday:
+            <%= @restaurant.hour.from_friday %> -
+            <%= @restaurant.hour.to_friday %><br/>
+          Saturday:
+            <%= @restaurant.hour.from_saturday %> -
+            <%= @restaurant.hour.to_saturday %><br/>
+          Sunday:
+            <%= @restaurant.hour.from_sunday %> -
+            <%= @restaurant.hour.to_sunday %><br/><br/>
+        <% else %>
+          <!-- empty -->
+        <% end %>
+        <% if current_user %>
+          <% if current_user == @restaurant.user %>
+        <p>
+          <%= link_to 'Set Address', edit_restaurant_location_path(@restaurant), :class => 'btn btn-success' %>
+          <%= link_to 'Set Hours', edit_restaurant_hour_path(@restaurant), :class => 'btn btn-success' %>
+          <%= link_to 'Add Dish', new_restaurant_menuitem_path(@restaurant), :class => 'btn btn-success' %>
+          <%= link_to 'Edit Restaurant', edit_restaurant_path(@restaurant), :class => 'btn btn-success' %>
+        </p>
+          <% end %>
+        <% else %>
+        <!-- Empty -->
+        <% end %>
+
+        <% if flash[:error] -%>
+          <p class='error'><%=h flash[:error] %></p>
+        <% end -%>
+        <% if flash[:notice] -%>
+          <p class='notice'><%=h flash[:notice] %></p>
+        <% end -%>
+
+        </div>
+
+        <div class="span6">
+            <div id="map_canvas" style="width:300px; height:250px"></div>
+        </div>
+      </div>
     </div>
 
-    <div class="span6">
-      <script type="text/javascript">
-        function initialize() {
-          var mapOptions = {
-            center: new google.maps.LatLng(-34.397, 150.644),
-            zoom: 8,
-            mapTypeId: google.maps.MapTypeId.ROADMAP
-            };
-          var map = new google.maps.Map(document.getElementById("map_canvas"),
-            mapOptions);
-            }
-            $(document).ready(function() {
-              initialize();
-            });
-      </script>
-        <div id="map_canvas" style="width:300px; height:250px"></div>
-      </div>
+    <div class="row-fluid">
+      <div class="span8 menu">
+        <% if @restaurant.menuitems != [] %>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Image</th>
+              <th>Dish</th>
+              <th>Description</th>
+              <th>Price</th>
+            </tr>
+          </thead>
+        <% end %>
+          <tbody>
+            <% @restaurant.menuitems.each do |menuitem| %>
+            <tr>
+              <td><%= image_tag menuitem.image.url(:small) %></td>
+              <td><%= menuitem.name %></td>
+              <td><%= menuitem.description %></td>
+              <td><%= menuitem.price %></td>
+              <% if current_user %>
+                <% if current_user == @restaurant.user %>
+                  <td>
+                    <%= link_to edit_restaurant_menuitem_path(@restaurant, menuitem), :class => 'btn btn-info' do %>
+                      <i class="icon-pencil icon-white"></i> Edit
+                    <% end %>
+                    <%= button_to 'Delete', restaurant_menuitem_path(@restaurant, menuitem), :method => :delete, :class => 'btn btn-danger' do %>
+                      <i class="icon-trash icon-white"></i>
+                    <% end %>
+                  </td>
+                <% end %>
+              <% else %>
+              <!-- You are not the restaurant owner -->
+              <% end %>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+    <br/>
+    <footer>
+      <p>&copy; <%= @restaurant.name %> 2012</p>
+    </footer>
   </div>
 </div>
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBdZ8-7GHY97vFoMAUB6bTRr7IfPS3_9Cs&sensor=true"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+  function initialize() {
+    var latlng = new google.maps.LatLng(<%= @restaurant.location.latitude %>, <%= @restaurant.location.longitude %>)
+    var mapOptions = {
+      center: latlng,
+      zoom: 15,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+      };
+    var map = new google.maps.Map(document.getElementById("map_canvas"),
+      mapOptions);
+    var image = new google.maps.MarkerImage('/assets/treasure-mark.png',
+      new google.maps.Size(129, 42),
+      new google.maps.Point(0,0),
+      new google.maps.Point(18, 42)
+    );
+    var marker1 = new google.maps.Marker({
+      position: new google.maps.LatLng(<%= @restaurant.location.latitude %>, <%= @restaurant.location.longitude %>),
+      map: map,
+      icon: image // This path is the custom pin to be shown. Remove this line and the proceeding comma to use default pin
+    });
+  }
+  initialize();
+});
 
-<div class="row-fluid">
-  <div class="span12 menu">
-    <h1>Menu</h1>
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>Image</th>
-          <th>Dish</th>
-          <th>Description</th>
-          <th>Price</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @restaurant.menuitems.each do |menuitem| %>
-        <tr>
-          <td><%= image_tag menuitem.image.url(:small) %></td>
-          <td><%= menuitem.name %></td>
-          <td><%= menuitem.description %></td>
-          <td><%= menuitem.price %></td>
-          <td><%= link_to 'Edit',   edit_restaurant_menuitem_path(:restaurant_id => menuitem.restaurant_id,
-                                                            :id => menuitem.id)%>
-              <%= link_to 'Delete', restaurant_menuitem_path(:restaurant_id => menuitem.restaurant_id,
-                                                            :id => menuitem.id), :method => :delete, :confirm => 'Are you sure?' %></td>
-        </tr>
-        <% end %>
-      </tbody>
-    </table>
-<br/>
-<footer>
-  <p style="position:relative; margin-left:30px;">&copy; <%= @restaurant.name %> 2012</p>
-</footer>
-      <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBdZ8-7GHY97vFoMAUB6bTRr7IfPS3_9Cs&sensor=true"></script>
-
+</script>

@@ -1,7 +1,8 @@
 class Menuitem < ActiveRecord::Base
   attr_accessible :name, :description, :price, :image
 
-  validates_presence_of :image
+  validates_presence_of :image, :name, :description, :price
+  validates_numericality_of :price, :only_integer => false
 
   belongs_to :restaurant
 

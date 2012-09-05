@@ -11,6 +11,8 @@ class MenuitemsController < ApplicationController
     respond_to do |format|
       if @menuitem.save
         format.html { redirect_to restaurant_path(@restaurant) }
+      else
+        format.html { redirect_to restaurant_path(@restaurant), notice: 'One or more fields are not correctly formatted.' }
       end
     end
   end
@@ -42,10 +44,9 @@ class MenuitemsController < ApplicationController
   def destroy
     @restaurant = Restaurant.find(params[:restaurant_id])
     @menuitem = Menuitem.find(params[:id])
+    @menuitem.destroy
     respond_to do |format|
-      if @menuitem.destroy
-        format.html { redirect_to menuitems_path }
-      end
+      format.html { redirect_to restaurant_path(@restaurant) }
     end
   end
 end

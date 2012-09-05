@@ -3,6 +3,7 @@ class HoursController < ApplicationController
   def create
     @restaurant = Restaurant.find(params[:restaurant_id])
     @hour = @restaurant.build_hour(params[:hour])
+    debugger
     respond_to do |format|
       if @hour.save
         format.html { redirect_to restaurant_path(@restaurant) }

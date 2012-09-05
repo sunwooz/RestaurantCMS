@@ -6,4 +6,6 @@ class Restaurant < ActiveRecord::Base
 
   has_many :menuitems, :dependent => :destroy
   has_one :hour, :dependent => :destroy
+  has_one :location, :dependent => :destroy
+  belongs_to :user
 end

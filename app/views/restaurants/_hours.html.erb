@@ -1,5 +1,5 @@
 <h1>Set Your Restaurant Hours</h1><br/>
-
+<p>Click on a blank field and use the slider to set the opening and closing time of a day</p>
 <%= form_for hour, :url => { :action => "update" }, :html => { :method => 'put' } do |f| %>
   <div class="row-fluid">
     <div class="span3 hours_input" style="margin:0 auto;">
@@ -54,9 +54,11 @@
       <%= f.text_field :from_sunday, :class => 'span20 hour_field'  %>
       To
       <%= f.text_field :to_sunday, :class => 'span20 hour_field'  %>
-    </div><br/>
+    </div>
     <div class="span3">
-      <%= f.submit 'Set Hours', :class => 'btn btn-success btn-large' %>
+      <%= f.submit 'Set Hours', :class => 'btn btn-success btn-large', :id => 'hour_submit' %>
     </div>
   </div>
 <% end %>
+<script src="/assets/hours.js?body=1" type="text/javascript"></script>
+<script src="/assets/jquery-ui-timepicker.js?body=1" type="text/javascript"></script>

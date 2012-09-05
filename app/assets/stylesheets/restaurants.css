@@ -1,0 +1,15 @@
+// Place all the styles related to the restaurants controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+// restaurant index page
+#show_restaurant ul li {
+  list-style-type:none;
+}
+#show_restaurant ul li #map_canvas {
+    position:relative;
+    left:-30px;
+}
+#index_restaurant ul li {
+  list-style-type:none;
+}

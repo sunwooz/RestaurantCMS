@@ -1,10 +1,17 @@
 Restauranttest::Application.routes.draw do
+  root :to => 'pages#home'
+
   resources :restaurants do
     resources :menuitems
     resource :hour
+    resource :location
   end
 
-  root :to => 'restaurants#index'
+  resources :users do
+    resources :restaurants
+  end
+
+
 
   match 'user/edit' => 'users#edit', :as => :edit_current_user
   match 'signup' => 'users#new', :as => :signup
