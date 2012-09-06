@@ -87,10 +87,6 @@ GEM
       json (~> 1.4)
     rmagick (2.13.1)
     sass (3.1.20)
-    sass-rails (3.2.5)
-      railties (~> 3.2.0)
-      sass (>= 3.1.10)
-      tilt (~> 1.3)
     sprockets (2.1.3)
       hike (~> 1.2)
       rack (~> 1.0)
@@ -119,6 +115,6 @@ DEPENDENCIES
   quiet_assets
   rails (= 3.2.3)
   rmagick
-  sass-rails (~> 3.2.3)
+  sass
   sqlite3
   uglifier (>= 1.0.3)
