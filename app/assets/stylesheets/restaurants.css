@@ -13,3 +13,6 @@
 #index_restaurant ul li {
   list-style-type:none;
 }
+#r_name {
+  font-size:40px;
+}

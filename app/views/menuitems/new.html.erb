@@ -4,13 +4,13 @@
   <h1>Add your first Dish</h1>
 <% end %>
 <%= form_for [@restaurant, @restaurant.menuitems.new], :html => { :multipart => true } do |f| %>
-  <%= f.label :name %>~
-  <%= f.text_field :name %>
-  <%= f.label :description %>~
-  <%= f.text_field :description %>
-  <%= f.label :image %>
-  <%= f.file_field :image %>
-  <%= f.label :price %>$
+  <%= f.label :name %><br/>
+  <%= f.text_field :name %><br/>
+  <%= f.label :description %><br/>
+  <%= f.text_field :description %><br/>
+  <%= f.label :image %><br/>
+  <%= f.file_field :image %><br/>
+  <%= f.label :price %><br/>
   <%= f.text_field :price %><br/>
   <%= f.submit 'Add Item', :class => 'btn btn-large btn-success' %>
 <% end %>

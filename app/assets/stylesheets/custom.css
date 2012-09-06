@@ -15,6 +15,7 @@ body {
 }
 .content {
   clear:both;
+  margin-bottom:40px;
 }
 .navbar {
   list-style-type:none;
