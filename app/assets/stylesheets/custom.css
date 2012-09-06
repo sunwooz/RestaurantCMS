@@ -33,3 +33,10 @@ body {
 .navbar li a:hover {
   text-decoration:underline;
 }
+a {
+  color:#3D5893;
+  text-decoration:none;
+}
+.logo h1 {
+  margin:0px;
+}
