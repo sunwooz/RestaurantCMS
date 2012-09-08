@@ -6,5 +6,5 @@ class Menuitem < ActiveRecord::Base
 
   belongs_to :restaurant
 
-  has_attached_file :image, :styles => { :small => "150x150>" }
+  has_attached_file :image, :styles => { :regular => "560x568>" }
 end

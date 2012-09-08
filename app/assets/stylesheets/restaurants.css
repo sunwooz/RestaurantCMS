@@ -6,13 +6,10 @@
 #show_restaurant ul li {
   list-style-type:none;
 }
-#show_restaurant ul li #map_canvas {
-    position:relative;
-    left:-30px;
-}
 #index_restaurant ul li {
   list-style-type:none;
 }
 #r_name {
-  font-size:40px;
+  font-size:4em;
+  line-height:1em;
 }

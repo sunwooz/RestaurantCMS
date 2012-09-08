@@ -4,28 +4,13 @@
 .notice {
   color: green;
 }
-body {
-  margin:0px auto;
-  padding:0px;
-  font-family: 'Abril Fatface';
-}
-.container {
-  margin: 0 auto;
-  width:800px;
-}
 .content {
-  clear:both;
   margin-bottom:40px;
 }
 .navbar {
   list-style-type:none;
-  text-align:right;
   display:inline;
   margin-bottom:50px;
-}
-.navbar li {
-  float:right;
-  padding:20px;
 }
 .navbar li a {
   color:#242E3D;
@@ -38,6 +23,4 @@ a {
   color:#3D5893;
   text-decoration:none;
 }
-.logo h1 {
-  margin:0px;
-}
+
