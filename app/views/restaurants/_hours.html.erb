@@ -1,64 +1,68 @@
-<h1>Set Your Restaurant Hours</h1><br/>
-<p>Click on a blank field and use the slider to set the opening and closing time of a day</p>
-<%= form_for hour, :url => { :action => "update" }, :html => { :method => 'put' } do |f| %>
-  <div>
-    <div class="hours_input" style="margin:0 auto;">
-      <h3>Monday</h3>
-      From
-      <%= f.text_field :from_monday, :class => 'hour_field', :size => 8 %><br/>
-      To
-      <%= f.text_field :to_monday, :ignore_date => true, :class => 'hour_field to_field', :size => 8 %>
-    </div>
-    <div class="hours_input">
-      <h3>Tuesday</h3>
-      From
-      <%= f.text_field :from_tuesday, :class => 'hour_field', :size => 8 %><br/>
-      To
-      <%= f.text_field :to_tuesday, :class => 'hour_field to_field', :size => 8 %>
-    </div>
-    <div class="hours_input">
-      <h3>Wednesday</h3>
-      From
-      <%= f.text_field :from_wednesday, :class => 'hour_field', :size => 8 %><br/>
-      To
-      <%= f.text_field :to_wednesday, :class => 'hour_field to_field', :size => 8 %>
-    </div>
+<div class="row">
+  <div class="grid_4 offset_4">
+    <h1>Set Your Restaurant Hours</h1><br/>
+    <p>Click on a blank field and use the slider to set the opening and closing time of a day</p>
+    <%= form_for hour, :url => { :action => "update" }, :html => { :method => 'put' } do |f| %>
+      <div>
+        <div class="hours_input" style="margin:0 auto;">
+          <h3>Monday</h3>
+          From
+          <%= f.text_field :from_monday, :class => 'hour_field', :size => 8 %><br/>
+          To
+          <%= f.text_field :to_monday, :ignore_date => true, :class => 'hour_field to_field', :size => 8 %>
+        </div>
+        <div class="hours_input">
+          <h3>Tuesday</h3>
+          From
+          <%= f.text_field :from_tuesday, :class => 'hour_field', :size => 8 %><br/>
+          To
+          <%= f.text_field :to_tuesday, :class => 'hour_field to_field', :size => 8 %>
+        </div>
+        <div class="hours_input">
+          <h3>Wednesday</h3>
+          From
+          <%= f.text_field :from_wednesday, :class => 'hour_field', :size => 8 %><br/>
+          To
+          <%= f.text_field :to_wednesday, :class => 'hour_field to_field', :size => 8 %>
+        </div>
+      </div>
+      <div>
+        <div class="hours_input">
+          <h3>Thursday</h3>
+          From
+          <%= f.text_field :from_thursday, :class => 'hour_field', :size => 8 %><br/>
+          To
+          <%= f.text_field :to_thursday, :class => 'hour_field to_field', :size => 8 %>
+        </div>
+        <div class="hours_input">
+          <h3>Friday</h3>
+          From
+          <%= f.text_field :from_friday, :class => 'hour_field', :size => 8 %><br/>
+          To
+          <%= f.text_field :to_friday, :class => 'hour_field to_field', :size => 8 %>
+        </div>
+        <div class="hours_input">
+          <h3>Saturday</h3>
+          From
+          <%= f.text_field :from_saturday, :class => 'hour_field', :size => 8 %><br/>
+          To
+          <%= f.text_field :to_saturday, :class => 'hour_field to_field', :size => 8 %>
+        </div>
+      </div>
+      <div>
+        <div class="hours_input">
+          <h3>Sunday</h3>
+          From
+          <%= f.text_field :from_sunday, :class => 'hour_field', :size => 8 %><br/>
+          To
+          <%= f.text_field :to_sunday, :class => 'hour_field to_field', :size => 8 %>
+        </div>
+        <div>
+          <%= f.submit 'Set Hours', :class => 'btn btn-success btn-large', :id => 'hour_submit' %>
+        </div>
+      </div>
+    <% end %>
   </div>
-  <div>
-    <div class="hours_input">
-      <h3>Thursday</h3>
-      From
-      <%= f.text_field :from_thursday, :class => 'hour_field', :size => 8 %><br/>
-      To
-      <%= f.text_field :to_thursday, :class => 'hour_field to_field', :size => 8 %>
-    </div>
-    <div class="hours_input">
-      <h3>Friday</h3>
-      From
-      <%= f.text_field :from_friday, :class => 'hour_field', :size => 8 %><br/>
-      To
-      <%= f.text_field :to_friday, :class => 'hour_field to_field', :size => 8 %>
-    </div>
-    <div class="hours_input">
-      <h3>Saturday</h3>
-      From
-      <%= f.text_field :from_saturday, :class => 'hour_field', :size => 8 %><br/>
-      To
-      <%= f.text_field :to_saturday, :class => 'hour_field to_field', :size => 8 %>
-    </div>
-  </div>
-  <div>
-    <div class="hours_input">
-      <h3>Sunday</h3>
-      From
-      <%= f.text_field :from_sunday, :class => 'hour_field', :size => 8 %><br/>
-      To
-      <%= f.text_field :to_sunday, :class => 'hour_field to_field', :size => 8 %>
-    </div>
-    <div>
-      <%= f.submit 'Set Hours', :class => 'btn btn-success btn-large', :id => 'hour_submit' %>
-    </div>
-  </div>
-<% end %>
+</div>
 <script src="/assets/hours.js?body=1" type="text/javascript"></script>
 <script src="/assets/jquery-ui-timepicker.js?body=1" type="text/javascript"></script>

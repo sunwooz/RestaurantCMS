@@ -4,19 +4,8 @@
       <div class="grid_4">
         <h1 id="r_name"><%= @restaurant.name %></h1>
         <p><%= @restaurant.description %></p>
-
-        <% if current_user %>
-          <% if current_user == @restaurant.user %>
-            <%= link_to 'Set Address', edit_restaurant_location_path(@restaurant), :class => 'btn btn-success' %>
-            <%= link_to 'Set Hours', edit_restaurant_hour_path(@restaurant), :class => 'btn btn-success' %>
-            <%= link_to 'Add Dish', new_restaurant_menuitem_path(@restaurant), :class => 'btn btn-success' %>
-            <%= link_to 'Edit Restaurant', edit_restaurant_path(@restaurant), :class => 'btn btn-success' %>
-          <% end %>
-        <% else %>
-        <!-- Empty -->
-        <% end %>
       </div>
-      <div class="grid_4">
+      <div class="grid_4 hide-tablet">
         <% if @restaurant.hour.from_monday %>
           <div class="row">
             <div class="grid_4">
@@ -70,6 +59,24 @@
   </div>
 </div><br/>
 
+<div class="row">
+  <div class="grid_5">
+    <% if current_user %>
+      <% if current_user == @restaurant.user %>
+        <%= link_to 'Set Address', edit_restaurant_location_path(@restaurant), :class => 'btn btn-success' %>
+        <%= link_to 'Set Hours', edit_restaurant_hour_path(@restaurant), :class => 'btn btn-success' %>
+        <%= link_to 'Add Dish', new_restaurant_menuitem_path(@restaurant), :class => 'btn btn-success' %>
+        <%= link_to 'Edit Restaurant', edit_restaurant_path(@restaurant), :class => 'btn btn-success' %>
+      <% end %>
+    <% else %>
+    <!-- Empty -->
+    <% end %>
+  </div>
+</div>
+<div class="row"><div id="br" class="grid_12">d</div></div>
+<script type="text/javascript">
+  $('#br').css({color: 'white'});
+</script>
 
 <div class="menu">
   <% @restaurant.menuitems.each_slice(2) do |two| %>

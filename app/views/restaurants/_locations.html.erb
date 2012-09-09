@@ -1,5 +1,6 @@
-<%= form_for location, :url => { :action => "update" }, :html => { :method => 'put' } do |f| %>
-  <%= f.label :address %>
-  <%= f.text_field :address %>
-  <%= f.submit 'Set Address', :class => 'btn btn-success', :id => 'location_submit' %>
-<% end %>
+
+    <%= form_for location, :url => { :action => "update" }, :html => { :method => 'put' } do |f| %>
+      <%= f.label :address %><br/>
+      <%= f.text_field :address %>
+      <%= f.submit 'Set Address', :class => 'btn btn-success', :id => 'location_submit' %>
+    <% end %>

@@ -24,10 +24,11 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'geocoder'
+gem 'aws-s3', :require => 'aws/s3'
+gem 'geocoder' #for geolocation/google map
 gem "bcrypt-ruby", :require => "bcrypt"
-gem 'paperclip'
-gem 'rmagick'
+gem 'paperclip' #easy file upload
+gem 'rmagick' #image manipulation
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

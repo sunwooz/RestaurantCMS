@@ -11,6 +11,13 @@ end
 
 module Restauranttest
   class Application < Rails::Application
+
+    AWS::S3::Base.establish_connection!(
+        :access_key_id     => 'AKIAIWUA6ZEME67XR5ZA',
+        :secret_access_key => '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'
+    )
+    BUCKET = 'RestaurantImages'
+
     config.autoload_paths << "#{config.root}/lib"    # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
