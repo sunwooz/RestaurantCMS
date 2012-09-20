@@ -52,7 +52,7 @@
 
 
       </div>
-      <dig class="grid_4">
+      <dig class="grid_4 hide-tablet">
         <div id="map_canvas" style="float:left; width:100%; height:260px"></div>
       </div>
     </div>
@@ -73,10 +73,7 @@
     <% end %>
   </div>
 </div>
-<div class="row"><div id="br" class="grid_12">d</div></div>
-<script type="text/javascript">
-  $('#br').css({color: 'white'});
-</script>
+
 
 <div class="menu">
   <% @restaurant.menuitems.each_slice(2) do |two| %>
@@ -115,6 +112,7 @@
         </footer>
       </div>
     </div>
+
   </div>
 </div>
 <script type="text/javascript"

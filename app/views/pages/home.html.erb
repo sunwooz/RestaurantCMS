@@ -6,7 +6,13 @@
   </div>
   <div class="row">
     <div class="grid_4 offset_5">
-      <a id="home_signup" href="/signup">Create Website</a>
+      <button id="home_signup" href="/signup">Create Website</button>
     </div>
   </div>
 </div>
+<script type="text/javascript">
+  url1 = "/signup"
+  $('#home_signup').click(function () {
+    window.location = url1;
+  });
+</script>
