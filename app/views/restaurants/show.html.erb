@@ -82,22 +82,24 @@
         <div class="row">
           <% two.each do |f| %>
             <div class="grid_6">
-              <%= image_tag f.image.url(:regular), :class => 'max-image' %>
-              <% if current_user %>
-                <% if current_user == @restaurant.user %>
-                  <div class="row">
-                    <div class="grid_6">
-                      <%= link_to 'Edit', edit_restaurant_menuitem_path(@restaurant, f), :class => 'btn' %>
-                      <%= button_to 'Delete', restaurant_menuitem_path(@restaurant, f), :method => :delete, :class => 'btn' %>
-                    </div>
-                  </div>
-                <% end %>
+              <% if f.image? %>
+                <%= image_tag f.image.url(:regular), :class => 'max-image' %>
               <% end %>
               <div class="transparent-background">
-                <h2><%= f.name %> <span style="font-size:1em;">$<%= f.price %></span></h2>
+                <h2 style="text-align:center;"><%= f.name %> <span style="font-size:1em;">$<%= f.price %></span></h2>
                 <p><%= f.description %></p>
               </div>
             </div>
+            <% if current_user %>
+              <% if current_user == @restaurant.user %>
+                <div class="row">
+                  <div class="grid_6">
+                    <%= link_to 'Edit', edit_restaurant_menuitem_path(@restaurant, f), :class => 'btn' %>
+                    <%= button_to 'Delete', restaurant_menuitem_path(@restaurant, f), :method => :delete, :class => 'btn' %>
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
           <% end %>
         </div>
       </div>

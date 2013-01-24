@@ -1,14 +1,13 @@
-<p>
-  <h1><%= @user.username.capitalize %>'s Restaurants</h1>
-</p>
-<p>
-  <i><%= @user.email %></i>
-</p>
-<p>
-  <% @user.restaurants.each do |f| %>
+<div class="row">
+  <div class="grid_4 offset_4">
+    <h1>Your Restaurant<% if @user.restaurants.count > 1 %>s<% else %><% end %></h1>
     <p>
-      <%= link_to f.name, user_restaurants_path(@user, @user.restaurants) %><br/>
-      <%= f.description %>
+      <% @user.restaurants.each do |f| %>
+        <p>
+          <h1><%= link_to f.name, user_restaurants_path(@user, @user.restaurants) %></h1><br/>
+          <%= f.description %>
+        </p>
+      <% end %>
     </p>
-  <% end %>
-</p>
+  </div>
+</div>
