@@ -1,122 +1,82 @@
-<div class="row">
-  <div class="grid_12">
-    <div class="row">
-      <div class="grid_4">
-        <h1 id="r_name"><%= @restaurant.name %></h1>
-        <p><%= @restaurant.description %></p>
-      </div>
-      <div class="grid_4 hide-tablet">
-        <% if @restaurant.hour.from_monday %>
-          <div class="row">
-            <div class="grid_4">
-              <h2>
-              Mon:
-                <%= @restaurant.hour.from_monday %> -
-                <%= @restaurant.hour.to_monday %>
-              </h2>
-              <h2>
-              Tue:
-                <%= @restaurant.hour.from_tuesday %> -
-                <%= @restaurant.hour.to_tuesday %>
-              </h2>
-              <h2>
-              Wed:
-                <%= @restaurant.hour.from_wednesday %> -
-                <%= @restaurant.hour.to_wednesday %>
-              </h2>
-              <h2>
-              Thur:
-                <%= @restaurant.hour.from_thursday %> -
-                <%= @restaurant.hour.to_thursday %>
-              </h2>
-              <h2>
-              Fri:
-                <%= @restaurant.hour.from_friday %> -
-                <%= @restaurant.hour.to_friday %>
-              </h2>
-              <h2>
-              Sat:
-                <%= @restaurant.hour.from_saturday %> -
-                <%= @restaurant.hour.to_saturday %>
-              </h2>
-              <h2>
-              Sun:
-                <%= @restaurant.hour.from_sunday %> -
-                <%= @restaurant.hour.to_sunday %>
-              </h2>
-            </div>
-          </div>
+
+  <h1 id="r_name"><%= @restaurant.name %></h1>
+  <p><%= @restaurant.description %></p>
+
+  <% if @restaurant.hour.from_monday %>
+        <h2>
+        Mon:
+          <%= @restaurant.hour.from_monday %> -
+          <%= @restaurant.hour.to_monday %>
+        </h2>
+        <h2>
+        Tue:
+          <%= @restaurant.hour.from_tuesday %> -
+          <%= @restaurant.hour.to_tuesday %>
+        </h2>
+        <h2>
+        Wed:
+          <%= @restaurant.hour.from_wednesday %> -
+          <%= @restaurant.hour.to_wednesday %>
+        </h2>
+        <h2>
+        Thur:
+          <%= @restaurant.hour.from_thursday %> -
+          <%= @restaurant.hour.to_thursday %>
+        </h2>
+        <h2>
+        Fri:
+          <%= @restaurant.hour.from_friday %> -
+          <%= @restaurant.hour.to_friday %>
+        </h2>
+        <h2>
+        Sat:
+          <%= @restaurant.hour.from_saturday %> -
+          <%= @restaurant.hour.to_saturday %>
+        </h2>
+        <h2>
+        Sun:
+          <%= @restaurant.hour.from_sunday %> -
+          <%= @restaurant.hour.to_sunday %>
+        </h2>
+
             <% else %>
               <!-- empty -->
             <% end %>
 
-
-      </div>
-      <dig class="grid_4 hide-tablet">
         <div id="map_canvas" style="float:left; width:100%; height:260px"></div>
-      </div>
-    </div>
-  </div>
-</div><br/>
 
-<div class="row">
-  <div class="grid_5">
-    <% if current_user %>
-      <% if current_user == @restaurant.user %>
-        <%= link_to 'Set Address', edit_restaurant_location_path(@restaurant), :class => 'btn btn-success' %>
-        <%= link_to 'Set Hours', edit_restaurant_hour_path(@restaurant), :class => 'btn btn-success' %>
-        <%= link_to 'Add Dish', new_restaurant_menuitem_path(@restaurant), :class => 'btn btn-success' %>
-        <%= link_to 'Edit Restaurant', edit_restaurant_path(@restaurant), :class => 'btn btn-success' %>
-      <% end %>
-    <% else %>
-    <!-- Empty -->
-    <% end %>
-  </div>
-</div>
-
+<% if current_user %>
+  <% if current_user == @restaurant.user %>
+    <%= link_to 'Set Address', edit_restaurant_location_path(@restaurant), :class => 'btn btn-success' %>
+    <%= link_to 'Set Hours', edit_restaurant_hour_path(@restaurant), :class => 'btn btn-success' %>
+    <%= link_to 'Add Dish', new_restaurant_menuitem_path(@restaurant), :class => 'btn btn-success' %>
+    <%= link_to 'Edit Restaurant', edit_restaurant_path(@restaurant), :class => 'btn btn-success' %>
+  <% end %>
+<% else %>
+<!-- Empty -->
+<% end %>
 
 <div class="menu">
   <% @restaurant.menuitems.each_slice(2) do |two| %>
-    <div class="row">
-      <div class="grid_12">
-        <div class="row">
-          <% two.each do |f| %>
-            <div class="grid_6">
-              <% if f.image? %>
-                <%= image_tag f.image.url(:regular), :class => 'max-image' %>
-              <% end %>
-              <div class="transparent-background">
-                <h2 style="text-align:center;"><%= f.name %> <span style="font-size:1em;">$<%= f.price %></span></h2>
-                <p><%= f.description %></p>
-              </div>
-            </div>
-            <% if current_user %>
-              <% if current_user == @restaurant.user %>
-                <div class="row">
-                  <div class="grid_6">
-                    <%= link_to 'Edit', edit_restaurant_menuitem_path(@restaurant, f), :class => 'btn' %>
-                    <%= button_to 'Delete', restaurant_menuitem_path(@restaurant, f), :method => :delete, :class => 'btn' %>
-                  </div>
-                </div>
-              <% end %>
-            <% end %>
-          <% end %>
-        </div>
+    <% two.each do |f| %>
+      <%= image_tag f.image.url(:regular), :class => 'max-image' %>
+      <% if current_user %>
+        <% if current_user == @restaurant.user %>
+          <%= link_to 'Edit', edit_restaurant_menuitem_path(@restaurant, f), :class => 'btn' %>
+          <%= button_to 'Delete', restaurant_menuitem_path(@restaurant, f), :method => :delete, :class => 'btn' %>
+        <% end %>
+      <% end %>
+      <div class="transparent-background">
+        <h2><%= f.name %> <span style="font-size:1em;">$<%= f.price %></span></h2>
+        <p><%= f.description %></p>
       </div>
-    </div>
+    <% end %>
   <% end %>
-</div>
 
-    <div class="row">
-      <div class="grid_12">
-        <footer>
-          <p>&copy; <%= @restaurant.name %> 2012</p>
-        </footer>
-      </div>
-    </div>
+<footer>
+  <p>&copy; <%= @restaurant.name %> 2012</p>
+</footer>
 
-  </div>
-</div>
 <script type="text/javascript"
   src="http://maps.googleapis.com/maps/api/js?key=AIzaSyB8e-E_K2jDpnfUl3az_681ype6TfDLjjk&sensor=true">
 </script>
