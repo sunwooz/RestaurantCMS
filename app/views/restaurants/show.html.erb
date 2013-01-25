@@ -51,7 +51,7 @@
     <div class="row">
     <% two.each do |f| %>
       <div class="span6">
-      <%= image_tag f.image.url(:regular), :height => '284px' %> <br/>
+      <%= image_tag f.image.url(:regular) %> <br/>
       <% if current_user %>
         <% if current_user == @restaurant.user %>
           <%= link_to 'Edit', edit_restaurant_menuitem_path(@restaurant, f), :class => 'btn' %>
