@@ -9,22 +9,16 @@
     </tr>
   </thead>
   <tbody>
-  <% @restaurant.menuitems.each do |f| %>
+  <% @menuitems.each do |f| %>
     <tr>
       <td><%= f.name %></td>
       <td><%= f.description %></td>
-    <td>$<%= f.price %></td>
-  <% if f.image_file_name? %>
-    <td><%= image_tag f.image.url(:regular) %></td>
-  <% end %>
-    <td><%= link_to 'Destroy', restaurant_menuitem_path(f), :method => :delete, :class => 'btn btn-danger' %>
+      <td>$<%= f.price %></td>
+      <td><%= image_tag f.image.url(:regular) %></td>
+      <td><%= link_to 'Destroy', restaurant_menuitem_path(f), :method => :delete, :class => 'btn btn-danger' %>
       <%= link_to 'Edit', edit_restaurant_menuitem_path(f), :class => 'btn btn-success'%></td>
     </tr>
   <% end %>
   </tbody>
 </table>
 
-<%= form_for @menuitem do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-<% end %>
