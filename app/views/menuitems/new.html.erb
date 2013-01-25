@@ -5,7 +5,7 @@
     <% else %>
       <h1>Add your first Dish</h1>
     <% end %>
-    <%= form_for [@restaurant, @restaurant.menuitems.new], :html => { :multipart => true } do |f| %>
+    <%= form_for @menuitem, :html => { :multipart => true } do |f| %>
       <%= f.label :name %><br/>
       <%= f.text_field :name %><br/>
       <%= f.label :description %><br/>
