@@ -1,11 +1,27 @@
-<div id="home">
-  <h1 id="tagline">Easily Create & Manage your Restaurant Website</h1>
-  <button id="home_signup" href="/signup">Create Website</button>
+<div class="row">
+  <div class="span12">
+    <h1>Easily Create & Manage your Restaurant Website</h1>
+    <button href="/signup">Create Website</button>
+  </div>
 </div>
 
-<script type="text/javascript">
+<div id="featured">
+  <div class="row">
+    <div class="span4">
+      <%= @restaurants.find(3).name %>
+    </div>
+    <div class="span4">
+      restaurant 2
+    </div>
+    <div class="span4">
+      restaurant 3
+    </div>
+  </div>
+
+</div>
+<!-- <script type="text/javascript">
   url1 = "/signup"
   $('#home_signup').click(function () {
     window.location = url1;
   });
-</script>
+</script> -->
