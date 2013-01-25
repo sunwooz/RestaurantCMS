@@ -9,7 +9,7 @@ class Menuitem < ActiveRecord::Base
   has_attached_file :image,
     :styles => {
       :thumbnail => '100x101#',
-      :regular => '560x568#'
+      :regular => '560x284#'
     },
     :storage => :s3,
     :s3_credentials => {
