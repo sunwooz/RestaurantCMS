@@ -9,27 +9,41 @@
     <p><%= @restaurant.description %></p>
     <!-- Restaurant Hours -->
     <% if @restaurant.hour.from_monday %>
+      <span id="0">
       Mon:
         <%= @restaurant.hour.from_monday %> -
         <%= @restaurant.hour.to_monday %>
+      </span>
+      <span id="1">
       Tue:
         <%= @restaurant.hour.from_tuesday %> -
         <%= @restaurant.hour.to_tuesday %>
+      </span>
+      <span id="2">
       Wed:
         <%= @restaurant.hour.from_wednesday %> -
         <%= @restaurant.hour.to_wednesday %>
+      </span>
+      <span id="3">
       Thur:
         <%= @restaurant.hour.from_thursday %> -
         <%= @restaurant.hour.to_thursday %>
+      </span>
+      <span id="4">
       Fri:
         <%= @restaurant.hour.from_friday %> -
         <%= @restaurant.hour.to_friday %>
+      </span>
+      <span id="5">
       Sat:
         <%= @restaurant.hour.from_saturday %> -
         <%= @restaurant.hour.to_saturday %>
+      </span>
+      <span id="6">
       Sun:
         <%= @restaurant.hour.from_sunday %> -
         <%= @restaurant.hour.to_sunday %>
+      </span>
     <% else %>
       <!-- empty -->
     <% end %>
