@@ -1,5 +1,7 @@
 class RestaurantsController < ApplicationController
 
+  layout 'restaurant_layout', :except => :index
+
   def new
     @restaurant = Restaurant.new
   end
