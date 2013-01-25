@@ -282,6 +282,8 @@ a:hover {
 }
 .span6 {
   width: 460px;
+  position: relative;
+  left: 10px;
 }
 .span5 {
   width: 380px;
