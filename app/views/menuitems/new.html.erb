@@ -1,6 +1,6 @@
 <div class="row">
   <div class="grid_4 offset_4">
-    <%= form_for @menuitem, :html => { :multipart => true } do |f| %>
+    <%= form_for [@restaurant, @restaurant.menuitems.new], :html => { :multipart => true } do |f| %>
       <%= f.label :name %><br/>
       <%= f.text_field :name %><br/>
       <%= f.label :description %><br/>
