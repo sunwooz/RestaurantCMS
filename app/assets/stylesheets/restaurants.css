@@ -2,14 +2,3 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-// restaurant index page
-#show_restaurant ul li {
-  list-style-type:none;
-}
-#index_restaurant ul li {
-  list-style-type:none;
-}
-#r_name {
-  font-size:4em;
-  line-height:1em;
-}
