@@ -1,26 +1,8 @@
-.error {
-  color: red;
-}
-.notice {
-  color: green;
-}
-.content {
-  margin-bottom:40px;
-}
-.navbar {
-  list-style-type:none;
-  display:inline;
-  margin-bottom:50px;
-}
-.navbar li a {
-  color:#242E3D;
-  text-decoration:none;
-}
-.navbar li a:hover {
-  text-decoration:underline;
-}
 a {
-  color:#3D5893;
-  text-decoration:none;
+  color: #3D5893;
+  text-decoration: none;
 }
-
+#sugar_nav {
+  list-style-type: none;
+  margin-top: 20px;
+}
