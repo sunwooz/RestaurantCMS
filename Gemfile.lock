@@ -30,10 +30,6 @@ GEM
       multi_json (~> 1.0)
     addressable (2.3.2)
     arel (3.0.2)
-    aws-s3 (0.6.3)
-      builder
-      mime-types
-      xml-simple
     aws-sdk (1.8.0)
       httparty (~> 0.7)
       json (~> 1.4)
@@ -168,7 +164,6 @@ GEM
       execjs (>= 0.3.0)
       multi_json (~> 1.3)
     uuidtools (2.1.3)
-    xml-simple (1.1.1)
     xpath (0.1.4)
       nokogiri (~> 1.3)
 
@@ -176,7 +171,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  aws-s3
   aws-sdk
   bcrypt-ruby
   capybara
