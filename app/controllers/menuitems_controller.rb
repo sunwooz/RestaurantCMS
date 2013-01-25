@@ -2,7 +2,7 @@ class MenuitemsController < ApplicationController
 
   def new
     @restaurant = Restaurant.find(params[:restaurant_id])
-    @menuitem = @restaurant.menuitems.build
+    @menuitem = @restaurant.menuitems.new
   end
 
   def create

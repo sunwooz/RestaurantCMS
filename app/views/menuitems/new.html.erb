@@ -1,10 +1,5 @@
 <div class="row">
   <div class="grid_4 offset_4">
-    <% if @restaurant.menuitems %>
-      <h1>Add a new dish</h1>
-    <% else %>
-      <h1>Add your first Dish</h1>
-    <% end %>
     <%= form_for @menuitem, :html => { :multipart => true } do |f| %>
       <%= f.label :name %><br/>
       <%= f.text_field :name %><br/>
