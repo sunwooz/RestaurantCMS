@@ -87,9 +87,9 @@ $(document).ready(function() {
   function initialize() {
     var latlng = new google.maps.LatLng(<%= @restaurant.location.latitude %>, <%= @restaurant.location.longitude %>)
     var mapOptions = {
-      draggable: true,
+      draggable: false,
       zoomControl: false,
-      scrollWheel: false,
+      scrollwheel: false,
       disableDoubleClickZoom: true,
       center: latlng,
       zoom: 15,
