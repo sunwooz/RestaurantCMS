@@ -1,12 +1,23 @@
-== Restaurant Website CMS
+= Restaurant Website CMS
 
 http://sugarcider.com/
 
-Create website, add your restaurant's address, hours and menu items.
+A way to quickly and easily set up your restaurant's website.
+
+== Features
+
+* Uploads pictures with S3
+* Automatically centers Google Map on given Address
+* Set your restaurant's hours, uses timepicker.js
 
 == Goals
 
-= Known Bugs
+* User able to choose theme of their page(like wordpress)
+* User can customize HTML/CSS
+* User can set their own logo
+* User able to set their restaurant page with their own domain name
 
-* S3 upload currently doesn't work
+== Known Bugs
+
 * Migrating away from amazium/foundation to bootstrap(again)
+* Sometimes shows ugly URLs
