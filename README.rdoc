@@ -16,6 +16,7 @@ A way to quickly and easily set up your restaurant's website.
 * User can customize HTML/CSS
 * User can set their own logo
 * User able to set their restaurant page with their own domain name
+* Monthly payment using Stripe/Paypal/Amazon checkouts
 
 == Known Bugs
 
