@@ -24,7 +24,8 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'aws-s3', :require => 'aws/s3'
+gem 'aws-s3'
+gem 'aws-sdk'
 gem 'geocoder' #for geolocation/google map
 gem "bcrypt-ruby", :require => "bcrypt"
 gem 'paperclip' #easy file upload
