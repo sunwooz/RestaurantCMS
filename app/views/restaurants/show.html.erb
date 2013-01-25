@@ -1,49 +1,34 @@
 
-  <h1 id="r_name"><%= @restaurant.name %></h1>
-  <p><%= @restaurant.description %></p>
+<h1 id="r_name"><%= @restaurant.name %></h1>
+<p><%= @restaurant.description %></p>
 
-  <% if @restaurant.hour.from_monday %>
-        <h2>
-        Mon:
-          <%= @restaurant.hour.from_monday %> -
-          <%= @restaurant.hour.to_monday %>
-        </h2>
-        <h2>
-        Tue:
-          <%= @restaurant.hour.from_tuesday %> -
-          <%= @restaurant.hour.to_tuesday %>
-        </h2>
-        <h2>
-        Wed:
-          <%= @restaurant.hour.from_wednesday %> -
-          <%= @restaurant.hour.to_wednesday %>
-        </h2>
-        <h2>
-        Thur:
-          <%= @restaurant.hour.from_thursday %> -
-          <%= @restaurant.hour.to_thursday %>
-        </h2>
-        <h2>
-        Fri:
-          <%= @restaurant.hour.from_friday %> -
-          <%= @restaurant.hour.to_friday %>
-        </h2>
-        <h2>
-        Sat:
-          <%= @restaurant.hour.from_saturday %> -
-          <%= @restaurant.hour.to_saturday %>
-        </h2>
-        <h2>
-        Sun:
-          <%= @restaurant.hour.from_sunday %> -
-          <%= @restaurant.hour.to_sunday %>
-        </h2>
+<% if @restaurant.hour.from_monday %>
+  Mon:
+    <%= @restaurant.hour.from_monday %> -
+    <%= @restaurant.hour.to_monday %>
+  Tue:
+    <%= @restaurant.hour.from_tuesday %> -
+    <%= @restaurant.hour.to_tuesday %>
+  Wed:
+    <%= @restaurant.hour.from_wednesday %> -
+    <%= @restaurant.hour.to_wednesday %>
+  Thur:
+    <%= @restaurant.hour.from_thursday %> -
+    <%= @restaurant.hour.to_thursday %>
+  Fri:
+    <%= @restaurant.hour.from_friday %> -
+    <%= @restaurant.hour.to_friday %>
+  Sat:
+    <%= @restaurant.hour.from_saturday %> -
+    <%= @restaurant.hour.to_saturday %>
+  Sun:
+    <%= @restaurant.hour.from_sunday %> -
+    <%= @restaurant.hour.to_sunday %>
+<% else %>
+  <!-- empty -->
+<% end %>
 
-            <% else %>
-              <!-- empty -->
-            <% end %>
-
-        <div id="map_canvas" style="float:left; width:100%; height:260px"></div>
+<div id="map_canvas" style="float:left; width:100%; height:260px"></div>
 
 <% if current_user %>
   <% if current_user == @restaurant.user %>
@@ -61,7 +46,7 @@
     <div class="row">
     <% two.each do |f| %>
       <div class="span6">
-      <%= image_tag f.image.url(:regular) %> <br/>
+      <%= image_tag f.image.url(:regular), :height => '568px' %> <br/>
       <% if current_user %>
         <% if current_user == @restaurant.user %>
           <%= link_to 'Edit', edit_restaurant_menuitem_path(@restaurant, f), :class => 'btn' %>
