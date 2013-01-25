@@ -58,19 +58,21 @@
 
 <div class="menu">
   <% @restaurant.menuitems.each_slice(2) do |two| %>
+    <div class="row">
     <% two.each do |f| %>
-      <%= image_tag f.image.url(:regular), :class => 'max-image' %>
+      <div class="span6">
+      <%= image_tag f.image.url(:regular) %> <br/>
       <% if current_user %>
         <% if current_user == @restaurant.user %>
           <%= link_to 'Edit', edit_restaurant_menuitem_path(@restaurant, f), :class => 'btn' %>
           <%= button_to 'Delete', restaurant_menuitem_path(@restaurant, f), :method => :delete, :class => 'btn' %>
         <% end %>
       <% end %>
-      <div class="transparent-background">
-        <h2><%= f.name %> <span style="font-size:1em;">$<%= f.price %></span></h2>
+        <h2><%= f.name %> $<%= f.price %></h2>
         <p><%= f.description %></p>
-      </div>
+        </div>
     <% end %>
+    </div>
   <% end %>
 
 <footer>
