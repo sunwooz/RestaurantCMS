@@ -1,5 +1,11 @@
 
 <h1 id="r_name"><%= @restaurant.name %></h1>
+<% if current_user %>
+  <% if current_user == @restaurant.user %>
+    <%= link_to 'Edit Restaurant', edit_restaurant_path(@restaurant), :class => 'btn btn-success' %>
+  <% end %>
+<% end %>
+
 <p><%= @restaurant.description %></p>
 
 <% if @restaurant.hour.from_monday %>
@@ -27,15 +33,14 @@
 <% else %>
   <!-- empty -->
 <% end %>
-
+<br/>
 <div id="map_canvas" style="float:left; width:100%; height:260px"></div>
-
+<br/>
 <% if current_user %>
   <% if current_user == @restaurant.user %>
     <%= link_to 'Set Address', edit_restaurant_location_path(@restaurant), :class => 'btn btn-success' %>
     <%= link_to 'Set Hours', edit_restaurant_hour_path(@restaurant), :class => 'btn btn-success' %>
     <%= link_to 'Add Dish', new_restaurant_menuitem_path(@restaurant), :class => 'btn btn-success' %>
-    <%= link_to 'Edit Restaurant', edit_restaurant_path(@restaurant), :class => 'btn btn-success' %>
   <% end %>
 <% else %>
 <!-- Empty -->
