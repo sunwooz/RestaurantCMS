@@ -4,3 +4,9 @@ http://sugarcider.com/
 
 Create website, add your restaurant's address, hours and menu items.
 
+== Goals
+
+= Known Bugs
+
+* S3 upload currently doesn't work
+* Migrating away from amazium/foundation to bootstrap(again)
