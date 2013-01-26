@@ -10,9 +10,11 @@ A way to quickly and easily set up your restaurant's website. Mostly for practic
 * Automatically centers Google Map on given Address
 * Set your restaurant's hours, uses timepicker.js
 
-== Goals
+== To-Do List
 
 * Add phone number input
+* Set custom domain name on each restaurant
+* Ajax uploads/edits using modals(?)
 * Somehow cache the Map with an image so it doesn't request the API every time the page is loaded
 * Get directions button
 * User able to choose theme of their page(like wordpress)
@@ -23,5 +25,4 @@ A way to quickly and easily set up your restaurant's website. Mostly for practic
 
 == Known Bugs
 
-* Migrating away from amazium/foundation to bootstrap(again)
 * Sometimes shows ugly URLs
