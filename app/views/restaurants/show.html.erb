@@ -4,6 +4,9 @@
     <% if current_user %>
       <% if current_user == @restaurant.user %>
         <%= link_to 'Edit Restaurant', edit_restaurant_path(@restaurant), :class => 'btn btn-success' %>
+        <%= link_to 'Set Address', edit_restaurant_location_path(@restaurant), :class => 'btn btn-success' %>
+        <%= link_to 'Set Hours', edit_restaurant_hour_path(@restaurant), :class => 'btn btn-success' %>
+        <%= link_to 'Add Dish', new_restaurant_menuitem_path(@restaurant), :class => 'btn btn-success' %>
       <% end %>
     <% end %>
     <p><%= @restaurant.description %></p>
@@ -61,15 +64,6 @@
 <br/>
 
 <br/>
-<% if current_user %>
-  <% if current_user == @restaurant.user %>
-    <%= link_to 'Set Address', edit_restaurant_location_path(@restaurant), :class => 'btn btn-success' %>
-    <%= link_to 'Set Hours', edit_restaurant_hour_path(@restaurant), :class => 'btn btn-success' %>
-    <%= link_to 'Add Dish', new_restaurant_menuitem_path(@restaurant), :class => 'btn btn-success' %>
-  <% end %>
-<% else %>
-<!-- Empty -->
-<% end %>
 
 <div class="menu">
   <% @restaurant.menuitems.each_slice(2) do |two| %>
