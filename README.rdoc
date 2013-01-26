@@ -2,7 +2,7 @@
 
 http://sugarcider.com/
 
-A way to quickly and easily set up your restaurant's website.
+A way to quickly and easily set up your restaurant's website. Mostly for practice.
 
 == Features
 
