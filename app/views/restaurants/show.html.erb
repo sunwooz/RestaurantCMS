@@ -14,39 +14,39 @@
     <div class="row">
       <div class="span3">
         <% if @restaurant.hour.from_monday %>
-          <span id="0">
+          <span id="1">
           Mon:
             <%= @restaurant.hour.from_monday %> -
             <%= @restaurant.hour.to_monday %>
           </span><br/>
-          <span id="1">
+          <span id="2">
           Tue:
             <%= @restaurant.hour.from_tuesday %> -
             <%= @restaurant.hour.to_tuesday %>
           </span><br/>
-          <span id="2">
+          <span id="3">
           Wed:
             <%= @restaurant.hour.from_wednesday %> -
             <%= @restaurant.hour.to_wednesday %>
           </span>
         </div>
         <div class="span3">
-          <span id="3">
+          <span id="4">
           Thur:
             <%= @restaurant.hour.from_thursday %> -
             <%= @restaurant.hour.to_thursday %>
           </span><br/>
-          <span id="4">
+          <span id="5">
           Fri:
             <%= @restaurant.hour.from_friday %> -
             <%= @restaurant.hour.to_friday %>
           </span><br/>
-          <span id="5">
+          <span id="6">
           Sat:
             <%= @restaurant.hour.from_saturday %> -
             <%= @restaurant.hour.to_saturday %>
           </span><br/>
-          <span id="6">
+          <span id="0">
           Sun:
             <%= @restaurant.hour.from_sunday %> -
             <%= @restaurant.hour.to_sunday %>
@@ -121,8 +121,7 @@ $(document).ready(function() {
   (function() {
     var d = new Date();
     var n = d.getDay();
-
-    document.getElementById(n-1).style.fontWeight="bold";
+    document.getElementById(n).style.fontWeight="bold";
   })();
 
 
