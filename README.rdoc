@@ -12,6 +12,8 @@ A way to quickly and easily set up your restaurant's website. Mostly for practic
 
 == To-Do List
 
+* In place editing of restaurant's name, description - menuitem's name, description, image, price
+* modal for editing hours
 * Add phone number input
 * Set custom domain name on each restaurant
 * Ajax uploads/edits using modals(?)
