@@ -10,6 +10,11 @@
   font-family: 'Julius Sans One', sans-serif;
   color: white;
   font-weight: bold;
-  font-size: 60px;
+  font-size: 3em;
   line-height: 60px;
+}
+#featured {
+  font-family: 'Sacramento', cursive;
+  font-size: 2.5em;
+  margin-top: 15px;
 }
