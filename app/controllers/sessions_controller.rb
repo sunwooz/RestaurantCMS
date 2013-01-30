@@ -4,9 +4,10 @@ class SessionsController < ApplicationController
 
   def create
     user = User.authenticate(params[:login], params[:password])
+    @restaurant = user.restaurants.first
     if user
       session[:user_id] = user.id
-      redirect_to user_restaurant_path(user, user.restaurants), :notice => "Logged in successfully."
+      redirect_to restaurant_path(@restaurant), :notice => "Logged in successfully."
     else
       flash.now[:alert] = "Invalid login or password."
       render :action => 'new'
