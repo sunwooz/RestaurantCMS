@@ -1,0 +1,15 @@
+#catch {
+  background-image: url('/assets/restaurant.jpg');
+  color: white;
+  border-radius: 35px;
+  background-position: center center;
+  padding-bottom: 150px;
+  padding-top: 150px;
+}
+#headline {
+  font-family: 'Julius Sans One', sans-serif;
+  color: white;
+  font-weight: bold;
+  font-size: 60px;
+  line-height: 60px;
+}
