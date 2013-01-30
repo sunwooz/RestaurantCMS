@@ -2,3 +2,9 @@ a {
   color: #3D5893;
   text-decoration: none;
 }
+
+#featured {
+  font-family: 'Sacramento', cursive;
+  font-size 2.5em;
+  margin-top: 15px;
+}
