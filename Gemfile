@@ -24,6 +24,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+gem 'rufus-scheduler'
 gem 'aws-sdk'
 gem 'geocoder' #for geolocation/google map
 gem "bcrypt-ruby", :require => "bcrypt"
