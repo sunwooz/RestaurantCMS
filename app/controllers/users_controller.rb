@@ -11,15 +11,15 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+
   end
 
   def create
     @user = User.new(params[:user])
     respond_to do |format|
       if @user.save
-        format.json
         session[:user_id] = @user.id
-        redirect_to new_user_restaurant_path(@user, @user.restaurants.build), :notice => "Thank you for signing up! You are now logged in. You can now create a restaurant."
+        format.html { redirect_to new_restaurant_path, :notice => "Thank you for signing up! You are now logged in. You can now create a restaurant." }
       else
         render :action => 'new'
       end

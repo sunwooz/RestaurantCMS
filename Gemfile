@@ -10,6 +10,7 @@ group :development do
   gem 'nifty-generators'
   gem 'quiet_assets'
 end
+
 group :production do
   gem 'pg'
 end
