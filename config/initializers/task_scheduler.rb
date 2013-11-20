@@ -10,8 +10,8 @@ scheduler.every '10m' do
 end
 
 scheduler.every '5m' do
-	require "net/http"
-	require "uri"
-	url = 'http://ghanmy.sierrabagish.us/'
-	Net::HTTP.get_response(URI.prase(url))
+  require "net/http"
+  require "uri"
+  url = 'http://ghanmy.sierrabagish.us/'
+  Net::HTTP.get_response(URI.prase(url))
 end
